@@ -16,7 +16,7 @@ const AddCoffee = () => {
         const newCoffee = { name, taste, supplier, quantity, category, details, photo };
         console.log(newCoffee);
 
-        // send new coffee making information to the server
+       
         fetch('http://localhost:5000/coffee', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },

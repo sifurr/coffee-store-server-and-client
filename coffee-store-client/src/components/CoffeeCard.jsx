@@ -2,8 +2,9 @@
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
 
+// eslint-disable-next-line react/prop-types
 const CoffeeCard = ({ coffee }) => {
-    const { _id, name, taste, supplier, quantity, category, details, photo } = coffee || {}
+    const { _id, name, taste, supplier, quantity, photo } = coffee || {}
    
 
     const handleDelete = _id => {

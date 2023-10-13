@@ -61,6 +61,27 @@ async function run() {
             res.send(result);
         })
 
+        // put api 
+        app.put('/coffee/:id', async (req, res)=>{
+            const id = req.params.id;
+            const filter = {_id: new ObjectId(id)};
+            const options = {upsert:true};
+            const updatedCoffee = req.body;
+            const coffee = {
+                $set: {
+                    name: updatedCoffee.name,
+                    taste: updatedCoffee.taste,
+                    supplier: updatedCoffee.supplier,
+                    quantity: updatedCoffee.quantity,
+                    category: updatedCoffee.category,
+                    details: updatedCoffee.details,
+                    photo: updatedCoffee.photo
+                }
+            }
+            const result = await coffeeCollection.updateOne(filter, coffee, options);
+            res.send(result);
+        })
+
 
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
