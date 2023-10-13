@@ -24,7 +24,7 @@ const AddCoffee = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                console.log("From insert >>>", data);
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',

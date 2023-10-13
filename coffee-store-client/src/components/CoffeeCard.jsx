@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 // eslint-disable-next-line react/prop-types
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = ({ coffee, coffeeList, setCoffeeList }) => {
     const { _id, name, taste, supplier, quantity, photo } = coffee || {}
    
 
@@ -29,6 +29,9 @@ const CoffeeCard = ({ coffee }) => {
                         console.log(data);
 
                         if (data.deletedCount > 0) {
+                            // eslint-disable-next-line react/prop-types
+                            const remainingCoffeeItems = coffeeList.filter(aCoffee => aCoffee._id !== _id);
+                            setCoffeeList(remainingCoffeeItems);
                             Swal.fire(
                                 'Deleted!',
                                 'Your Coffee has been deleted.',
