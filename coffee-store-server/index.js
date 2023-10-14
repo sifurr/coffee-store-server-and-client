@@ -101,6 +101,19 @@ async function run() {
             res.send(result);
         })
 
+        // update/patch api
+        app.patch('/users', async (req, res)=>{
+            const user = req.body;
+            const filter = {email: user.email};
+            const updateDoc = {
+                $set:{
+                    lastLoggedAt: user.lastLoggedAt
+                }
+            }
+            const updatedTime = await userCollection.updateOne(filter, updateDoc);
+            res.send(updatedTime); 
+        })
+
         // delete api
         app.delete('/users/:id', async (req, res)=>{
             const id = req.params.id;
