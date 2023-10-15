@@ -22,7 +22,7 @@ const SignUp = () => {
                 const lastLoggedAt = result.user?.metadata?.lastSignInTime;
                 const user = { email, createdAt, lastLoggedAt};
 
-                fetch(`http://localhost:5000/user`, {
+                fetch(`https://coffee-store-server-pr16d2blt-saifurs-projects.vercel.app/user`, {
                     method: 'POST',
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify(user)

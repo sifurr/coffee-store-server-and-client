@@ -133,6 +133,9 @@ async function run() {
 }
 run().catch(console.dir);
 
+app.get('/', (req, res)=>{
+    res.send("Coffee server is running");
+})
 
 app.listen(port, () => {
     console.log(`Coffee server is running on port ${port}`);
